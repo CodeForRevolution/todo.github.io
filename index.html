@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+        display: flex;
+        margin: 0px;
+        padding: 0px;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100wh;
+        }
+        img{
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+
+         .ribbon {
+ 
+             width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            position: relative;
+}
+
+.active{
+    visibility: hidden;
+}
+
+.ribbon::before {
+  content:attr(data-count);
+  z-index: 55;
+  width: var(--widthh,15px);
+  height: var(--heightt,15px);
+  border-radius: 50%;
+  text-align: center;
+  background-color:var(--bgcr,yellow);
+  position: absolute;
+  left: 33px;
+    top: -6px;
+    right: 0px;
+    visibility:var(--visi,hidden);
+  
+    
+}
+
+
+
+
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="img">
+        <div class="ribbon">
+            <img  class="imgc" src="https://cdn-icons-png.flaticon.com/512/4401/4401433.png" alt="telegram ">
+        </div>
+        
+        <button class="btn" onclick="increase()">push-to-notify</button>
+    </div>
+
+    <script>
+        const btnEl=document.querySelector('.btn');
+        const noticeEl=document.querySelector('.ribbon');
+        console.log(noticeEl);
+const increase=()=>{
+    console.log("come into the increase function")
+    var add=Number(noticeEl.getAttribute('data-count')||0);
+    console.log("returning the magic",noticeEl.getAttribute('data-count')||0);
+    noticeEl.setAttribute('data-count',add+1);
+ 
+
+
+
+
+    noticeEl.style.setProperty('--visi','visible')
+
+
+
+    if(add>8){
+
+
+        
+    let notice = window.getComputedStyle(noticeEl, '::before')
+   console.log("in the increase height");
+   console.log(notice.top)
+  noticeEl.style.setProperty('--visi','visible')
+   noticeEl.style.setProperty('--heightt','20px')
+   noticeEl.style.setProperty('--widthh','20px')
+
+//    add the data basegi
+
+    
+    }
+
+
+
+}
+
+    </script>
+  
+    
+</body>
+</html>
